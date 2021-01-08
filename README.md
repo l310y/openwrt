@@ -26,6 +26,14 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 curl gawk gettex
 你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！
  
  -----------------------------------------------------
+GitHub Actions编译说名:
+-
+1.打开GitHub Actions页面：https://github.com/wk8838299/openwrt/action
+
+2、选择`OpenWrt-CI`
+
+3、点击 `Run workflow`
+刷新当前页面后看到编译进程启动
 
 ![OpenWrt logo](/logo.svg)
 
