@@ -35,6 +35,9 @@ GitHub Actions编译说名:
 3、点击 `Run workflow`
 刷新当前页面后看到编译进程启动
 
+如需保留当前.config ，可以运行下面命令生成默认配置
+`rm -rf defconfig && ./scripts/diffconfig.sh > ./defconfig`
+
 ![OpenWrt logo](/logo.svg)
 
 OpenWrt Project is a Linux operating system targeting embedded devices. Instead
