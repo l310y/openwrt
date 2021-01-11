@@ -14,9 +14,7 @@ PKG_VERSION:=3.0.0.1_20130802
 PKG_RELEASE:=1
 PKG_SOURCE_URL:=https://sourceforge.net/projects/openwrtres/files/mt7610u/
 PKG_SOURCE:=mt7601u-ap.tar.gz
-PKG_BUILD_DIR:=$(KERNEL_BUILD_DIR)/mt7601u-ap_$(PKG_VERSION)
-PKG_HASH:=skip
-
+PKG_BUILD_DIR:=$(KERNEL_BUILD_DIR)/mt7601u-ap
 
 PKG_MAINTAINER:=Luca Olivetti <luca@ventoso.org>
 PKG_LICENSE:=GPL-2.0+
