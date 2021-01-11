@@ -65,7 +65,9 @@ define Build/Compile
 endef
 
 define KernelPackage/mt7601uap/install
+	$(INSTALL_DIR) $(1)/etc/Wireless/RT2870AP/
 	$(INSTALL_DIR) $(1)/lib/modules/$(LINUX_VERSION)
+	$(CP) $(PKG_BUILD_DIR)/RT2870AP.dat $(1)/etc/Wireless/RT2870AP/
 endef
 
 $(eval $(call KernelPackage,mt7601uap))
