@@ -62,7 +62,7 @@ detect_mac80211() {
 	devidx=0
 	config_load wireless
 	while :; do
-		config_get type "radio$devidx" type
+		config_get type "wlan$devidx" type
 		[ -n "$type" ] || break
 		devidx=$(($devidx + 1))
 	done
@@ -89,7 +89,7 @@ detect_mac80211() {
 			iw phy "$dev" info | grep -q 'VHT Capabilities' && htmode="VHT80"
 		}
 
-		[ -n "$htmode" ] && ht_capab="set wireless.radio${devidx}.htmode=$htmode"
+		[ -n "$htmode" ] && ht_capab="set wireless.wlan${devidx}.htmode=$htmode"
 
 		if [ -x /usr/bin/readlink -a -h /sys/class/ieee80211/${dev} ]; then
 			path="$(readlink -f /sys/class/ieee80211/${dev}/device)"
@@ -101,26 +101,26 @@ detect_mac80211() {
 			case "$path" in
 				platform*/pci*) path="${path##platform/}";;
 			esac
-			dev_id="set wireless.radio${devidx}.path='$path'"
+			dev_id="set wireless.wlan${devidx}.path='$path'"
 		else
-			dev_id="set wireless.radio${devidx}.macaddr=$(cat /sys/class/ieee80211/${dev}/macaddress)"
+			dev_id="set wireless.wlan${devidx}.macaddr=$(cat /sys/class/ieee80211/${dev}/macaddress)"
 		fi
 
 		uci -q batch <<-EOF
-			set wireless.radio${devidx}=wifi-device
-			set wireless.radio${devidx}.type=mac80211
-			set wireless.radio${devidx}.channel=${channel}
-			set wireless.radio${devidx}.hwmode=11${mode_band}
+			set wireless.wlan${devidx}=wifi-device
+			set wireless.wlan${devidx}.type=mac80211
+			set wireless.wlan${devidx}.channel=${channel}
+			set wireless.wlan${devidx}.hwmode=11${mode_band}
 			${dev_id}
 			${ht_capab}
-			set wireless.radio${devidx}.disabled=1
+			set wireless.wlan${devidx}.disabled=1
 
-			set wireless.default_radio${devidx}=wifi-iface
-			set wireless.default_radio${devidx}.device=radio${devidx}
-			set wireless.default_radio${devidx}.network=lan
-			set wireless.default_radio${devidx}.mode=ap
-			set wireless.default_radio${devidx}.ssid=OpenWrt
-			set wireless.default_radio${devidx}.encryption=none
+			set wireless.default_wlan${devidx}=wifi-iface
+			set wireless.default_wlan${devidx}.device=wlan${devidx}
+			set wireless.default_wlan${devidx}.network=lan
+			set wireless.default_wlan${devidx}.mode=ap
+			set wireless.default_wlan${devidx}.ssid=OpenWrt
+			set wireless.default_wlan${devidx}.encryption=none
 EOF
 		uci -q commit wireless
 
