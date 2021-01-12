@@ -14,7 +14,7 @@ PKG_VERSION:=3.0.0.1_20130802
 PKG_RELEASE:=1
 PKG_SOURCE_URL:=https://sourceforge.net/projects/openwrtres/files/mt7610u/
 PKG_SOURCE:=mt7601u-ap.tar.gz
-PKG_MD5SUM:=0930b2d12f68eb9ddcdd3989dd9026f8
+PKG_MD5SUM:=2495318ec01d03d5702030684e28264b
 PKG_BUILD_DIR:=$(KERNEL_BUILD_DIR)/mt7601u-ap
 
 PKG_MAINTAINER:=Luca Olivetti <luca@ventoso.org>
@@ -64,9 +64,7 @@ define Build/Compile
 endef
 
 define KernelPackage/mt7601uap/install
-	$(INSTALL_DIR) $(1)/etc/Wireless/RT2870AP/
 	$(INSTALL_DIR) $(1)/lib/modules/$(LINUX_VERSION)
-	$(CP) $(PKG_BUILD_DIR)/RT2870AP.txt $(1)/etc/Wireless/RT2870AP/
 endef
 
 $(eval $(call KernelPackage,mt7601uap))
