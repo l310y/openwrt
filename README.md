@@ -24,7 +24,9 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 curl gawk gettex
 6. 编译完成后输出路径：openwrt19/bin/targets
 
 你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！
- 
+------------------------------------------------------
+该源码包含MTK AP驱动,编译出来的固件默认ip:10.10.36.117 默认密码：admin
+ 需要的自行到release下载固件
  -----------------------------------------------------
 GitHub Actions编译说名:
 -
