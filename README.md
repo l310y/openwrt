@@ -22,7 +22,7 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 curl gawk gettex
 6. 输入 `make -j1 V=s` （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
 
 6. 编译完成后输出路径：openwrt19/bin/targets
-
+OpenwrtQQ交流群:920699135
 你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！
 ------------------------------------------------------
 该源码包含MTK AP驱动,编译出来的固件默认ip:10.10.36.117 默认密码：admin
